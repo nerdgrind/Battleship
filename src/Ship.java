@@ -3,9 +3,17 @@
  */
 
 public class Ship {
-    Coordinates[] coords;
+    int size;
+    int remaining;
 
       public Ship (int size){
-          coords = new Coordinates[size];
+          this.size = size;
+      }
+      int hit(){
+          return --remaining;
+      }
+
+      int getSize(){
+          return size;
       }
 }

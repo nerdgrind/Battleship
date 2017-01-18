@@ -20,7 +20,7 @@ public class Battleship {
             }
             System.out.println("You have entered " + a + b);
 
-            if (g.checkCoordinates(a, b) == ' ')
+            if (g.checkC+oordinates(a, b) == ' ')
                 System.out.println(a + b + " is a MISS");
             else if (g.checkCoordinates(a, b) == 'O' || g.checkCoordinates(a, b) == 'X')
                 System.out.println(a + b + " has already been chosen");
