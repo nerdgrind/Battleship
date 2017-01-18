@@ -2,26 +2,23 @@
  * Created by Jeff on 1/12/2017.
  */
 public class Coordinates {
-    char status;
+    int shipNum = -2;
+    boolean alreadyAttacked = false;
 
-    public Coordinates (){
-        status = ' ';
+    public Coordinates(int s){
+        shipNum = s;
     }
-    public char getStatus(){
-        char returnStat;
-        if (status == ' ') {
-            returnStat = status;
-            setStatus('O');
+
+    public Coordinates(){
+        shipNum = -1;
+    }
+
+    int attack() {
+        if (alreadyAttacked)
+            return -1;
+        else{
+            alreadyAttacked = true;
+            return shipNum;
         }
-        else if (status == '0' || status == 'X')
-            returnStat = '0';
-        else
-            returnStat = 'R';
-        return returnStat;
     }
-
-    public void setStatus(char newStatus){
-        status = newStatus;
-    }
-
 }
