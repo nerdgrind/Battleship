@@ -1,3 +1,5 @@
+//Created by Jeff Pack
+
 import java.io.IOException;
 
 public class Battleship {
