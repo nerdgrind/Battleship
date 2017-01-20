@@ -8,6 +8,7 @@ public class Ship {
 
       public Ship (int size){
           this.size = size;
+          remaining = size;
       }
       int hit(){
           return --remaining;

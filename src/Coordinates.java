@@ -2,15 +2,15 @@
  * Created by Jeff on 1/12/2017.
  */
 public class Coordinates {
-    int shipNum = -2;
+    int shipNum;
     boolean alreadyAttacked = false;
 
     public Coordinates(int s){
         shipNum = s;
     }
 
-    public Coordinates(){
-        shipNum = -1;
+    Coordinates(){
+        shipNum = -2;
     }
 
     int attack() {
