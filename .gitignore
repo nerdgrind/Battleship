@@ -45,3 +45,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# All i care about are the .java files. ignore everything else
+*.iml
+*.class
+*.xml
+*.jar
+*.MF
