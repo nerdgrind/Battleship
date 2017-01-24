@@ -26,4 +26,8 @@ public class GameBoard {
         else
             return temp;
     }
+
+    int getStatus(int i, int j){
+        return board[i][j].getStatus();
+    }
 }
