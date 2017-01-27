@@ -3,7 +3,7 @@
 
 import java.io.IOException;
 
-public class Battleship {
+public class main {
 
     static void printBoard(GameBoard g) {
         System.out.println("  0 1 2 3 4 5 6 7 8 9");
@@ -65,7 +65,6 @@ public class Battleship {
                         case '7':
                         case '8':
                         case '9': while ((char)System.in.read() != '\n');
-                            //System.out.println("You have entered " + a + b);
                             int result = g.attack(a - 'A',b - '0');
                             printBoard(g);
                             System.out.print("" + a + b + " is a: ");
@@ -80,14 +79,6 @@ public class Battleship {
                                     break;
                             }
                             System.out.print("Enter coordinates (i.e. A7) or 'Q' to quit: ");
-                            /*if (result == -2)
-                                System.out.println("MISS");
-                            else if (result == 0)
-                                System.out.println("SINK!!");
-                            else if (result == -1)
-                                System.out.println("(n) already attacked spot! pick again!");
-                            else
-                                System.out.println("HIT!");*/
                             break;
                         default: System.out.println("Invalid Input! try again!");
                             while ((char)System.in.read() != '\n');
@@ -105,42 +96,22 @@ public class Battleship {
     }
 
     public static void main(String[] args) throws IOException {
+        Interface inter;
+
+
+
+        /*Only has a console interface for now but will let you choose
+        between which interface to use based on commandline arguments
+         */
+        //int temp = args.length;
+        //String[] c = {"-c"};
+        //if (args.equals(c))
+            inter = new Interface_Console();
+        //else
+        //    inter = new Interface_GUI();
+
+
         run();
 
-        //int a[] = System.in.read();
-
-        //for (int i = 0, a[i] = System.in.read(); a[i] = System.in.read())
-        /*char a = '0';
-        char b;
-        int i = System.in.read();
-        while ((char)i != 'Q'||(char)i != 'q'){
-            if (i != -1) {
-                a = (char) i;
-            }
-            b = '0';
-            i = System.in.read();
-            if (i != -1) {
-                b = (char) i;
-            }
-            System.out.println("You have entered " + a + b);
-            System.out.print("" + a + b + " is a: ");
-            int result = g.attack(a - 'A',b - '0');
-            if (result == -2)
-                System.out.println("MISS");
-            else if (result == 0)
-                System.out.println("SINK!!");
-            else if (result == -1)
-                System.out.println("(n) already attacked spot! pick again!");
-            else
-                System.out.println("HIT!");
-
-            printBoard(g);
-            System.out.println("\nEnter 'Q' to quit");
-            System.out.print("Enter coordinates (i.e. A7): ");
-            a = '0';
-            System.in.skip(1);
-            i = System.in.read();
-
-        }*/
     }
 }
