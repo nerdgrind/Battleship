@@ -18,8 +18,8 @@ public class GameBoard {
 
     }
 
-    public int attack(int i, int j){
-        int temp = board[i][j].attack();
+    public int attack(int []i){
+        int temp = board[i[0]][i[1]].attack();
         if (temp > -1) {
             return ls.hitShip(temp);
         }
