@@ -6,22 +6,24 @@ class GameEngine {
 
     }
     private Player[] Players;
-    private Interface[] inter;
 
-    void updateUI(Interface g) {
+    void updateUI() {
         for (Player p: Players){
-            g.updateBoard(p.getGameBoard());
+            p.updateBoard();
+        }
+    }
+
+    private void placeShips(){
+        for (Player p: Players){
+            p.placeShips();
         }
     }
 
     private void createPlayers(Interface inter){
         //generateUserOrder();
         Players = new Player[]{new Human(inter), new AI(inter)};
-
-        //initialize gameboard for each player
-        for (Player j : Players) {
-            j.setGameBoard();
-        }
+        Players[0].setGameBoard(Players[1].getGameBoard());
+        Players[1].setGameBoard(Players[0].getGameBoard());
     }
 
     //Will put the Players in a random turn order
@@ -44,13 +46,18 @@ class GameEngine {
         //    inter = new Interface_GUI();
 
         createPlayers(inter);
-        for (int i = 0; i < Players.length; i++){
-            int[] ret = Players[i].getCommand();
-            if (ret[0] == -1){
-                Players[(i+1)%2].quit(i + 1);
-                return;
+        updateUI();
+        placeShips();
+        do {
+            for (int i = 0; i < Players.length; i++) {
+                int[] ret = Players[i].getCommand();
+                if (ret[0] == -1) {
+                    Players[(i + 1) % 2].quit(i + 1);
+                    return;
+                }
+                Players[(i + 1) % 2].getGameBoard().attack(ret);
+                updateUI();
             }
-            Players[(i+1)%2].getGameBoard().attack(ret);
-        }
+        } while(true);
     }// the end of the program
 }

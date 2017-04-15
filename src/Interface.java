@@ -3,11 +3,12 @@
  */
 
 public class Interface{
-    protected int[] input;
+    protected int[] input = {-2,-2};
+
     public void updateBoard(){
     }
 
-    public void updateBoard(GameBoard g){
+    public void updateBoard(GameBoard[] g){
 
     }
 
@@ -19,7 +20,7 @@ public class Interface{
 
     }
 
-    public void quitting(){
+    public boolean quitting(){return false;
 
     }
 
