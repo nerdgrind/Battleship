@@ -21,7 +21,7 @@ class GameEngine {
 
     private void createPlayers(Interface inter){
         //generateUserOrder();
-        Players = new Player[]{new Human(inter), new AI(inter)};
+        Players = new Player[]{new Human(inter, 0), new AI(1)};
         Players[0].setGameBoard(Players[1].getGameBoard());
         Players[1].setGameBoard(Players[0].getGameBoard());
     }

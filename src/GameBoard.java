@@ -6,7 +6,12 @@ public class GameBoard {
     ListShips ls = new ListShips();
     Coordinates board[][] = new Coordinates[10][];
 
-    public void placeShips(){
+    public void placeShips(int[][][] i){
+        for (int[][] temp : i){
+            for (int[] temp2 : temp){
+                board [temp2[0]][temp2[1]].setShip();
+            }
+        }
 
     }
 

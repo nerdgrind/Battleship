@@ -2,42 +2,26 @@
  * Created by Jeff on 1/26/2017.
  */
 
-public class Interface{
-    protected int[] input = {-2,-2};
+abstract class Interface{
+    protected int[] input;
+    public int[][][] ships = new int[5][5][2];
 
-    public void updateBoard(){
-    }
+    public abstract void updateBoard();
 
-    public void updateBoard(GameBoard[] g){
+    public abstract void updateBoard(GameBoard[] g);
 
-    }
+    public abstract int[] getCommand();
 
-    public int[] getCommand(){
-        return input;
-    }
+    public abstract void askPlayers();
 
-    public void askPlayers(){
+    public abstract boolean quitting();
 
-    }
+    public abstract int[][][] placeShips();
 
-    public boolean quitting(){return false;
+    public abstract void startingGame();
 
-    }
+    public abstract void attackResponse();
 
-    public void placeShips(){
-
-    }
-
-    public void startingGame(){
-
-    }
-
-    public void attackResponse(){
-
-    }
-
-    public void quit(int i){
-
-    }
+    public abstract void quit(int i);
 
 }

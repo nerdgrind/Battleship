@@ -3,18 +3,20 @@
  */
 public class Coordinates {
 
-    // -2 = Not attacked
-    // -1 = Attacked
+    //-1 = already tried
+    // 0 = Nothing
+    // 1 = Ship
+    // 2 = Hit
+    // 3 = Miss
     int shipNum;
 
     boolean alreadyAttacked = false;
-
     public Coordinates(int s){
         shipNum = s;
     }
 
     Coordinates(){
-        shipNum = -2;
+        shipNum = 0;
     }
 
     int attack() {
@@ -22,17 +24,18 @@ public class Coordinates {
             return -1;
         else{
             alreadyAttacked = true;
+            if (shipNum == 1){
+                shipNum = 2;
+            }
             return shipNum;
         }
     }
 
     int getStatus(){
-        if (alreadyAttacked){
-            if (shipNum == -2){
-                return 1; //Miss
-            }
-            return 2; //Hit
-        }
-        return 0; //Not yet attacked
+        return shipNum;
+    }
+
+    void setShip(){
+        shipNum = 1;
     }
 }
